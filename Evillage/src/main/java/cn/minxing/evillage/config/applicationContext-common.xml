@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd 
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd  
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
+
+	<!-- Configure the path of properties file -->
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<value>classpath:config/database.properties</value>
+		</property>
+	</bean>
+
+	<!-- Configure dataSource with c3p0 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass">
+			<value>${dataSource.driverClass}</value>
+		</property>
+		<property name="jdbcUrl">
+			<value>${databaseUrl}</value>
+		</property>
+		<property name="user">
+			<value>${databaseUserName}</value>
+		</property>
+		<property name="password">
+			<value>${databasePassword}</value>
+		</property>
+		<!-- Minimum number of Connections a pool will maintain at any given time -->
+		<property name="minPoolSize">
+			<value>${dataSource.minPoolSize}</value>
+		</property>
+		<!-- Maximum number of Connections a pool will maintain at any given time -->
+		<property name="maxPoolSize">
+			<value>${dataSource.maxPoolSize}</value>
+		</property>
+		<!-- Number of Connections a pool will try to acquire upon startup. Should 
+			be between minPoolSize and maxPoolSize -->
+		<property name="initialPoolSize">
+			<value>${dataSource.initialPoolSize}</value>
+		</property>
+		<!-- Seconds a Connection can remain pooled but unused before being discarded. 
+			Zero means idle connections never expire -->
+		<property name="maxIdleTime">
+			<value>${dataSource.maxIdleTime}</value>
+		</property>
+		<!-- Defines how many times c3p0 will try to acquire a new Connection from 
+			the database before giving up. If this value is less than or equal to zero, 
+			c3p0 will keep trying to fetch a Connection indefinitely -->
+		<property name="acquireRetryAttempts">
+			<value>30</value>
+		</property>
+		<!-- If true, a pooled DataSource will declare itself broken and be permanently 
+			closed if a Connection cannot be obtained from the database after making 
+			acquireRetryAttempts to acquire one. If false, failure to obtain a Connection 
+			will cause all Threads waiting for the pool to acquire a Connection to throw 
+			an Exception, but the DataSource will remain valid, and will attempt to acquire 
+			again following a call to getConnection() -->
+		<property name="breakAfterAcquireFailure">
+			<value>true</value>
+		</property>
+		<!-- If true, an operation will be performed at every connection checkout 
+			to verify that the connection is valid. Be sure to set an efficient preferredTestQuery 
+			or automaticTestTable if you set this to true. Performing the (expensive) 
+			default Connection test on every client checkout will harm client performance. 
+			Testing Connections in checkout is the simplest and most reliable form of 
+			Connection testing, but for better performance, consider verifying connections 
+			periodically using idleConnectionTestPeriod -->
+		<property name="testConnectionOnCheckout">
+			<value>false</value>
+		</property>
+	</bean>
+
+	<!-- Configure SessionFactory of Hibernate -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+			</props>
+		</property>
+		<property name="packagesToScan">
+			<list>
+				<value>cn.minxing.evillage.core.entity</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- Define a transaction manager, so spring framework can manage Hibernate's 
+		transaction -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- Path of the package which requires annotation -->
+	<!-- <context:component-scan base-package="cn.minxing.**.service" /> -->
+
+	<!-- Support @Transactional annotation -->
+	<!-- <tx:annotation-driven transaction-manager="transactionManager" /> -->
+
+</beans>
