@@ -30,7 +30,7 @@ public class VillagerDaoTest extends
 	private IVillagerDao villagerDao;
 
 	@Test
-	@Rollback(true)
+	@Rollback(false)
 	public void testSave() {
 		Villager villager = new Villager();
 		villager.setIdentityNumber("441421199108144012");

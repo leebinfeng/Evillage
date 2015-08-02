@@ -162,7 +162,7 @@ public abstract class GenericServiceImpl<T, ID extends Serializable> implements
 		logger.debug("[{}.findAll()] is invoking ...", this.entityClass);
 		try {
 			List<T> list = this.getGenericDao().findAll();
-			if (list == null) {
+			if (list == null||list.isEmpty()) {
 				throw new NoSuchObjectException("No instance can be retrieve");
 			} else {
 				return list;
