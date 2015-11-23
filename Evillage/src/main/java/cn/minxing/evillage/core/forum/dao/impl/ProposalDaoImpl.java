@@ -1,8 +1,8 @@
-package cn.minxing.evillage.core.feedback.dao.impl;
+package cn.minxing.evillage.core.forum.dao.impl;
 
 import cn.minxing.evillage.core.base.dao.impl.GenericDaoImpl;
 import cn.minxing.evillage.core.entity.Proposal;
-import cn.minxing.evillage.core.feedback.dao.IProposalDao;
+import cn.minxing.evillage.core.forum.dao.IProposalDao;
 
 /**
  * Implementation class of IProposalDao interface

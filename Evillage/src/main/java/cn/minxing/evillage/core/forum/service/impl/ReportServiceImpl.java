@@ -1,10 +1,10 @@
-package cn.minxing.evillage.core.feedback.service.impl;
+package cn.minxing.evillage.core.forum.service.impl;
 
 import cn.minxing.evillage.core.base.dao.IGenericDao;
 import cn.minxing.evillage.core.base.service.impl.GenericServiceImpl;
 import cn.minxing.evillage.core.entity.Report;
-import cn.minxing.evillage.core.feedback.dao.IReportDao;
-import cn.minxing.evillage.core.feedback.service.IReportService;
+import cn.minxing.evillage.core.forum.dao.IReportDao;
+import cn.minxing.evillage.core.forum.service.IReportService;
 
 /**
  * @author 李彬峰

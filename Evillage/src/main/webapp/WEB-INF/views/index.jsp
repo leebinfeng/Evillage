@@ -13,9 +13,10 @@
 				<td>{{villager.identityNumber}}</td>
 				<td>{{villager.fullName}}</td>
 				<td>{{villager.gender}}</td>
-				<td>{{villager.birthday}}</td>
+				<td>{{villager.birthday}}</td>	
 			</tr>
 		</table>
+		
 	</div>
 	<div data-ng-controller="VillagerDetailController">
 		<input type="text" data-ng-model="villager.identityNumber">

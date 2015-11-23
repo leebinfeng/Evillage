@@ -12,6 +12,17 @@
 	<context:component-scan base-package="cn.minxing.evillage.core">
 	</context:component-scan>
 
+	<!-- <bean
+		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" />
+	<bean
+		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<bean
+					class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
+			</list>
+		</property>
+	</bean> -->
 	<mvc:annotation-driven />
 
 	<!-- 当在web.xml中 DispatcherServlet使用 <url-pattern>/</url-pattern> 映射时，能映射静态资源 -->

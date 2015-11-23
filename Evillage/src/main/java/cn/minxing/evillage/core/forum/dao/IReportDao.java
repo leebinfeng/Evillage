@@ -1,4 +1,4 @@
-package cn.minxing.evillage.core.feedback.dao;
+package cn.minxing.evillage.core.forum.dao;
 
 import cn.minxing.evillage.core.base.dao.IGenericDao;
 import cn.minxing.evillage.core.entity.Report;

@@ -1,8 +1,8 @@
-package cn.minxing.evillage.core.publish.dao.impl;
+package cn.minxing.evillage.core.information.dao.impl;
 
 import cn.minxing.evillage.core.base.dao.impl.GenericDaoImpl;
 import cn.minxing.evillage.core.entity.Message;
-import cn.minxing.evillage.core.publish.dao.IMessageDao;
+import cn.minxing.evillage.core.information.dao.IMessageDao;
 
 /**
  * Implementation class of IMessageDao interface

@@ -1,5 +1,6 @@
 package cn.minxing.evillage.core.base.web.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -9,7 +10,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import cn.minxing.evillage.common.exception.base.ErrorMessage;
@@ -48,11 +48,15 @@ public class VillagerController {
 			if (ex instanceof NoSuchObjectException) {
 				ErrorMessage em = new ErrorMessage();
 				em.setErrormsg("数据库中不存在记录......");
-				return em;
+				List<ErrorMessage> list= new ArrayList<ErrorMessage>();
+				list.add(em);
+				return list;
 			} else {
 				ErrorMessage em = new ErrorMessage();
 				em.setErrormsg("查找数据库时出错......");
-				return em;
+				List<ErrorMessage> list= new ArrayList<ErrorMessage>();
+				list.add(em);
+				return list;
 			}
 		}
 	}

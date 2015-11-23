@@ -1,8 +1,8 @@
-package cn.minxing.evillage.core.feedback.dao.impl;
+package cn.minxing.evillage.core.forum.dao.impl;
 
 import cn.minxing.evillage.core.base.dao.impl.GenericDaoImpl;
 import cn.minxing.evillage.core.entity.Report;
-import cn.minxing.evillage.core.feedback.dao.IReportDao;
+import cn.minxing.evillage.core.forum.dao.IReportDao;
 
 /**
  * Implementation class of IReportDao interface
