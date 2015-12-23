@@ -19,7 +19,7 @@ public class BaseController {
 
 	@RequestMapping({ "/index" })
 	public String index() {
-		return "index";
+		return "home";
 	}
 
 }
