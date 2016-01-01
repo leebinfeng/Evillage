@@ -9,7 +9,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- * ConstructionApplication entity. @author MyEclipse Persistence Tools
+ * EvmcpConstructionApplication entity. @author MyEclipse Persistence Tools
  */
 @Entity
 @Table(name = "EVMCP_Construction_Application", catalog = "minxing_e_village")
@@ -22,11 +22,13 @@ public class ConstructionApplication implements java.io.Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Integer applicationId;
-	private String identityNumber;
-	private String staffNumber;
+	private String applicant;
+	private String staff;
 	private Date applicationDate;
 	private Date endDate;
-	private String currentState;
+	private String state;
+	private String type;
+	private String attachment;
 
 	// Constructors
 
@@ -34,16 +36,31 @@ public class ConstructionApplication implements java.io.Serializable {
 	public ConstructionApplication() {
 	}
 
-	/** full constructor */
+	/** minimal constructor */
 	public ConstructionApplication(Integer applicationId,
-			String identityNumber, String staffNumber, Date applicationDate,
-			Date endDate, String currentState) {
+			String applicant, String staff, Date applicationDate, Date endDate,
+			String state, String type) {
 		this.applicationId = applicationId;
-		this.identityNumber = identityNumber;
-		this.staffNumber = staffNumber;
+		this.applicant = applicant;
+		this.staff = staff;
 		this.applicationDate = applicationDate;
 		this.endDate = endDate;
-		this.currentState = currentState;
+		this.state = state;
+		this.type = type;
+	}
+
+	/** full constructor */
+	public ConstructionApplication(Integer applicationId,
+			String applicant, String staff, Date applicationDate, Date endDate,
+			String state, String type, String attachment) {
+		this.applicationId = applicationId;
+		this.applicant = applicant;
+		this.staff = staff;
+		this.applicationDate = applicationDate;
+		this.endDate = endDate;
+		this.state = state;
+		this.type = type;
+		this.attachment = attachment;
 	}
 
 	// Property accessors
@@ -57,22 +74,22 @@ public class ConstructionApplication implements java.io.Serializable {
 		this.applicationId = applicationId;
 	}
 
-	@Column(name = "identity_number", nullable = false, length = 18)
-	public String getIdentityNumber() {
-		return this.identityNumber;
+	@Column(name = "applicant", nullable = false, length = 18)
+	public String getApplicant() {
+		return this.applicant;
 	}
 
-	public void setIdentityNumber(String identityNumber) {
-		this.identityNumber = identityNumber;
+	public void setApplicant(String applicant) {
+		this.applicant = applicant;
 	}
 
-	@Column(name = "staff_number", nullable = false, length = 20)
-	public String getStaffNumber() {
-		return this.staffNumber;
+	@Column(name = "staff", nullable = false, length = 20)
+	public String getStaff() {
+		return this.staff;
 	}
 
-	public void setStaffNumber(String staffNumber) {
-		this.staffNumber = staffNumber;
+	public void setStaff(String staff) {
+		this.staff = staff;
 	}
 
 	@Temporal(TemporalType.DATE)
@@ -95,13 +112,31 @@ public class ConstructionApplication implements java.io.Serializable {
 		this.endDate = endDate;
 	}
 
-	@Column(name = "current_state", nullable = false, length = 50)
-	public String getCurrentState() {
-		return this.currentState;
+	@Column(name = "state", nullable = false, length = 20)
+	public String getState() {
+		return this.state;
 	}
 
-	public void setCurrentState(String currentState) {
-		this.currentState = currentState;
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	@Column(name = "type", nullable = false, length = 10)
+	public String getType() {
+		return this.type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	@Column(name = "attachment", length = 225)
+	public String getAttachment() {
+		return this.attachment;
+	}
+
+	public void setAttachment(String attachment) {
+		this.attachment = attachment;
 	}
 
 }

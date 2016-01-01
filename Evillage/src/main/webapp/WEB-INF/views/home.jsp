@@ -54,7 +54,7 @@
 									<li><a href="certificate">户籍证明</a></li>
 									<li><a href="construction">报建申请</a></li>
 									<li><a href="medicare">医保管理</a></li>
-									<li><a href="land-contract">土地登记</a></li>
+									<li><a href="landContract">土地登记</a></li>
 									<li role="separator" class="divider"></li>
 									<li class="dropdown-header">其他服务</li>
 									<li><a href="proposal">建议监督</a></li>

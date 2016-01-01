@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * Staff entity. @author MyEclipse Persistence Tools
+ * EvmcpStaff entity. @author MyEclipse Persistence Tools
  */
 @Entity
 @Table(name = "EVMCP_Staff", catalog = "minxing_e_village")
@@ -22,6 +22,9 @@ public class Staff implements java.io.Serializable {
 	private String department;
 	private String position;
 	private String identityNumber;
+	private String vitae;
+	private String education;
+	private String qqNumber;
 
 	// Constructors
 
@@ -31,11 +34,15 @@ public class Staff implements java.io.Serializable {
 
 	/** full constructor */
 	public Staff(String staffNumber, String department, String position,
-			String identityNumber) {
+			String identityNumber, String vitae, String education,
+			String qqNumber) {
 		this.staffNumber = staffNumber;
 		this.department = department;
 		this.position = position;
 		this.identityNumber = identityNumber;
+		this.vitae = vitae;
+		this.education = education;
+		this.qqNumber = qqNumber;
 	}
 
 	// Property accessors
@@ -74,6 +81,33 @@ public class Staff implements java.io.Serializable {
 
 	public void setIdentityNumber(String identityNumber) {
 		this.identityNumber = identityNumber;
+	}
+
+	@Column(name = "vitae", nullable = false, length = 65535)
+	public String getVitae() {
+		return this.vitae;
+	}
+
+	public void setVitae(String vitae) {
+		this.vitae = vitae;
+	}
+
+	@Column(name = "education", nullable = false, length = 10)
+	public String getEducation() {
+		return this.education;
+	}
+
+	public void setEducation(String education) {
+		this.education = education;
+	}
+
+	@Column(name = "qq_number", nullable = false, length = 15)
+	public String getQqNumber() {
+		return this.qqNumber;
+	}
+
+	public void setQqNumber(String qqNumber) {
+		this.qqNumber = qqNumber;
 	}
 
 }

@@ -21,5 +21,9 @@ public class BaseController {
 	public String index() {
 		return "home";
 	}
+	@RequestMapping({"/certificate"})
+	public String certificate(){
+		return "business/certificate";
+	}
 
 }

@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * Information entity. @author MyEclipse Persistence Tools
+ * EvmcpInformation entity. @author MyEclipse Persistence Tools
  */
 @Entity
 @Table(name = "EVMCP_Information", catalog = "minxing_e_village")
@@ -20,11 +20,11 @@ public class Information implements java.io.Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Integer infoId;
-	private String staffNumber;
+	private String staff;
 	private Timestamp releaseTime;
 	private String title;
 	private String content;
-	private String classification;
+	private String tag;
 	private String attachment;
 
 	// Constructors
@@ -34,15 +34,15 @@ public class Information implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Information(Integer infoId, String staffNumber,
-			Timestamp releaseTime, String title, String content,
-			String classification, String attachment) {
+	public Information(Integer infoId, String staff,
+			Timestamp releaseTime, String title, String content, String tag,
+			String attachment) {
 		this.infoId = infoId;
-		this.staffNumber = staffNumber;
+		this.staff = staff;
 		this.releaseTime = releaseTime;
 		this.title = title;
 		this.content = content;
-		this.classification = classification;
+		this.tag = tag;
 		this.attachment = attachment;
 	}
 
@@ -57,13 +57,13 @@ public class Information implements java.io.Serializable {
 		this.infoId = infoId;
 	}
 
-	@Column(name = "staff_number", nullable = false, length = 20)
-	public String getStaffNumber() {
-		return this.staffNumber;
+	@Column(name = "staff", nullable = false, length = 20)
+	public String getStaff() {
+		return this.staff;
 	}
 
-	public void setStaffNumber(String staffNumber) {
-		this.staffNumber = staffNumber;
+	public void setStaff(String staff) {
+		this.staff = staff;
 	}
 
 	@Column(name = "release_time", nullable = false, length = 0)
@@ -93,13 +93,13 @@ public class Information implements java.io.Serializable {
 		this.content = content;
 	}
 
-	@Column(name = "classification", nullable = false, length = 20)
-	public String getClassification() {
-		return this.classification;
+	@Column(name = "tag", nullable = false, length = 20)
+	public String getTag() {
+		return this.tag;
 	}
 
-	public void setClassification(String classification) {
-		this.classification = classification;
+	public void setTag(String tag) {
+		this.tag = tag;
 	}
 
 	@Column(name = "attachment", nullable = false)

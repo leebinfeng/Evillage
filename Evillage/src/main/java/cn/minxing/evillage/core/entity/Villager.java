@@ -9,18 +9,18 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- * Villager entity. @author MyEclipse Persistence Tools
+ * EvmcpVillager entity. @author MyEclipse Persistence Tools
  */
 @Entity
 @Table(name = "EVMCP_Villager", catalog = "minxing_e_village")
 public class Villager implements java.io.Serializable {
 
+	// Fields
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	// Fields
-
 	private String identityNumber;
 	private String fullName;
 	private String gender;

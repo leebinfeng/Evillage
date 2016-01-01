@@ -9,7 +9,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- * MedicareAccount entity. @author MyEclipse Persistence Tools
+ * EvmcpMedicareAccount entity. @author MyEclipse Persistence Tools
  */
 @Entity
 @Table(name = "EVMCP_Medicare_Account", catalog = "minxing_e_village")
@@ -29,6 +29,7 @@ public class MedicareAccount implements java.io.Serializable {
 	private Integer pendingPaymentMonth;
 	private Float monthPayment;
 	private Float accountBalance;
+	private String monthStatus;
 
 	// Constructors
 
@@ -40,7 +41,7 @@ public class MedicareAccount implements java.io.Serializable {
 	public MedicareAccount(String medicareId, String bank,
 			String identityNumber, Date openDate,
 			Integer cumulativePaymentMonth, Integer pendingPaymentMonth,
-			Float monthPayment, Float accountBalance) {
+			Float monthPayment, Float accountBalance, String monthStatus) {
 		this.medicareId = medicareId;
 		this.bank = bank;
 		this.identityNumber = identityNumber;
@@ -49,6 +50,7 @@ public class MedicareAccount implements java.io.Serializable {
 		this.pendingPaymentMonth = pendingPaymentMonth;
 		this.monthPayment = monthPayment;
 		this.accountBalance = accountBalance;
+		this.monthStatus = monthStatus;
 	}
 
 	// Property accessors
@@ -124,6 +126,15 @@ public class MedicareAccount implements java.io.Serializable {
 
 	public void setAccountBalance(Float accountBalance) {
 		this.accountBalance = accountBalance;
+	}
+
+	@Column(name = "month_status", nullable = false, length = 10)
+	public String getMonthStatus() {
+		return this.monthStatus;
+	}
+
+	public void setMonthStatus(String monthStatus) {
+		this.monthStatus = monthStatus;
 	}
 
 }
