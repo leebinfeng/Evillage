@@ -7,7 +7,6 @@ import cn.minxing.evillage.core.business.dao.IConstructionApplicationDao;
 import cn.minxing.evillage.core.entity.ConstructionApplication;
 
 /**
- * Implementation class of IConstructionApplicationDao interface
  * 
  * @author 李彬峰
  *

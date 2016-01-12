@@ -18,6 +18,10 @@ import cn.minxing.evillage.common.exception.service.NoSuchObjectException;
 import cn.minxing.evillage.core.base.service.IVillagerService;
 import cn.minxing.evillage.core.entity.Villager;
 
+/**
+ * @author 李彬峰
+ *
+ */
 @RestController
 @RequestMapping("/villager/*")
 public class VillagerController {

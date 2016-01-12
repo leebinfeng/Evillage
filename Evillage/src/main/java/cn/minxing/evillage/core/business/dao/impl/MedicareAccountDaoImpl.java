@@ -7,7 +7,6 @@ import cn.minxing.evillage.core.business.dao.IMedicareAccountDao;
 import cn.minxing.evillage.core.entity.MedicareAccount;
 
 /**
- * Implementation class of IMedicareAccountDao interface
  * 
  * @author 李彬峰
  *
